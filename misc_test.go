@@ -92,8 +92,8 @@ func TestParseResponseInvalidToken(t *testing.T) {
 func TestRetryable(t *testing.T) {
 	for _, e := range []error{
 		&RateLimitedError{},
-		statusCodeError{Code: http.StatusInternalServerError},
-		statusCodeError{Code: http.StatusTooManyRequests},
+		StatusCodeError{Code: http.StatusInternalServerError},
+		StatusCodeError{Code: http.StatusTooManyRequests},
 	} {
 		r, ok := e.(slackutilsx.Retryable)
 		if !ok {
